@@ -6,8 +6,9 @@ $(document).on('ready', function() {
 
   //input: number of questions. Process: take number in number of selected questions and generate question list.  Out: append list of questions to the DOM
   function generateQuiz(number) {
+    var shuffledQuiz = shuffle(quiz);
     for (var i = 0; i < number; i++) {
-      createQuestion(quiz[i].question, (i + 1));
+      createQuestion(shuffledQuiz[i].question, (i + 1));
     }
   }
 
@@ -36,6 +37,24 @@ $(document).on('ready', function() {
     } else {
       return false;
     }
+  }
+
+  //input: quiz, process: shuffle deck, out: shuffled deck
+  function shuffle(quiz) {
+  //create a copy of the deck so that we can access it later if needed.
+    var currentIndex = quiz.length;
+    var tempValue;
+    var randomIndex;
+
+    while (0 !== currentIndex) {
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex--;
+      tempValue = quiz[currentIndex];
+      quiz[currentIndex] = quiz[randomIndex];
+      quiz[randomIndex] = tempValue;
+     }
+
+      return quiz;
   }
 
   $("#score").on("click", function() {
