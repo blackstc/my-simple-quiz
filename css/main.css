@@ -1,18 +1,47 @@
 /* add custom styles */
-
+body {
+  width: 100%;
+  background: url(http://bgfons.com/upload/stars_texture2959.jpg);
+}
 .logo{
   display: block;
   width: 400px;
   margin: 0 auto;
 }
 
-h3 {
+h4 {
   display: block;
-  text-align: center;
+  text-align: left;
+  color: #E6E600;
 }
 
 .container {
-  margin: 0 auto;
-  background-color: #5C7A99;
+  margin: 20px auto;
+  width: 450px;
+  background: black;
 }
 
+input[type="radio"] {
+  margin-right: 15px;
+}
+
+label {
+  color: #E6E600;
+}
+
+.btn-default {
+  margin: 10px 0;
+}
+
+.btn {
+  display: block;
+  margin: 0 auto;
+}
+
+input[type="number"] {
+  display: block;
+  width: 175px;
+  text-align: right;
+  margin:0 auto;
+  font-size: 15px;
+}
