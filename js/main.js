@@ -30,8 +30,6 @@ $(document).on('ready', function() {
     var $answer = $('#' + questionNum).find('input:checked').parent().text();
     var counter = 0;
 
-    console.log($answer);
-    console.log(quiz[0].answer);
     if (quiz[questionNum - 1].answer === $answer) {
       return true;
     } else {
@@ -57,6 +55,7 @@ $(document).on('ready', function() {
       return quiz;
   }
 
+
   $("#score").on("click", function() {
     var counter = 0;
     var $number = +$("#question").val();
@@ -73,13 +72,25 @@ $(document).on('ready', function() {
     $(".modal-title").html("Score: " + counter + "/" + $number + " or " + quizPercentage + "%");
   });
 
+
   //generates quiz on click of generate quiz button
   $("#generate").on("click", function() {
     $("#score").show();
     $("#generate").hide();
     $("#question").hide();
     var $number = +$("#question").val();
-    console.log($number);
     generateQuiz($number);
+  });
+
+  $("#question").keyup(function(event){
+    if(event.keyCode == 13){
+        $("#generate").click(function() {
+          $("#score").show();
+          $("#generate").hide();
+          $("#question").hide();
+          var $number = +$("#question").val();
+          generateQuiz($number);
+        });
+    }
   });
 });
